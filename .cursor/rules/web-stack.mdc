@@ -1,0 +1,33 @@
+---
+description: Approved web app tech stack and library choices (Next.js dashboard)
+alwaysApply: true
+---
+
+# Web Tech Stack (authoritative)
+
+The web app is the admin/management/teacher dashboard. Use ONLY the approved choices below. If a need is not covered here, flag it before adding a new dependency.
+
+## Core
+- **React** + **Next.js** (file-based routing, SSR) + **TypeScript**.
+- **Tailwind CSS** for styling; **shadcn/ui** for component primitives (own and customize them).
+
+## Approved library per concern (do not substitute)
+- Server state (DB-backed data): **TanStack Query**.
+- Client/UI state (modals, filters, theme): **Zustand**.
+- Forms + validation: **React Hook Form** + **Zod**.
+- Tables/grids: **TanStack Table**.
+- Charts: **Recharts**.
+- Export: **SheetJS (xlsx)** for Excel, **@react-pdf/renderer** (or a server PDF endpoint) for PDFs.
+- i18n: **next-intl**.
+- Real-time: **socket.io-client**.
+- Dates: **day.js**; money/number formatting: **Intl.NumberFormat**.
+
+## Tooling & ops
+- Package manager: **pnpm** only (no npm/yarn lockfiles).
+- **ESLint** + **Prettier**; **Husky** + **lint-staged** for pre-commit checks.
+- **Sentry** for production error/performance monitoring.
+
+## Don'ts
+- No **Redux** — use Zustand (UI state) or TanStack Query (server state).
+- No direct database access from the web app — always go through the typed NestJS API client.
+- Don't introduce an alternative library for a concern already covered above without explicitly flagging it.

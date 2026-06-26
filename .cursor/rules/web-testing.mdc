@@ -1,0 +1,12 @@
+---
+description: Web app testing conventions (Vitest, Testing Library, Playwright)
+globs: **/*.{test,spec}.{ts,tsx},**/e2e/**
+alwaysApply: false
+---
+
+# Web Testing
+
+- **Unit / component / hook tests**: **Vitest** + **Testing Library**.
+- **End-to-end**: **Playwright**, reserved for the money-and-trust journeys a school can't tolerate breaking: login, admission form, fee payment, viewing results.
+
+> Favor many fast component tests and a focused, small set of E2E tests. Don't recreate full E2E coverage for logic that a component/unit test can verify faster.

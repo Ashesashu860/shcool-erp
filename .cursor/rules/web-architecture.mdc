@@ -1,0 +1,41 @@
+---
+description: Web app architecture - feature structure, data flow, state, multi-tenant, auth
+globs: **/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Web Architecture
+
+## Feature-based structure
+Organize by feature, not by file type.
+
+```
+features/<feature>/
+├── api/         # calls to the backend
+├── components/  # feature UI
+├── hooks/       # TanStack Query wrappers (useFees, useCollectFee)
+├── types/       # feature types
+└── pages/       # screen-level composition
+```
+
+Cross-cutting code lives in `shared/{ui,lib,hooks,types}`. Avoid type-based top-level folders (a global `components/`, `hooks/`, etc.).
+
+## Data flow (strict)
+`Component -> feature hook (TanStack Query) -> typed API client -> NestJS backend`.
+
+Components NEVER call `fetch` or the API client directly — they go through a feature hook.
+
+## State split
+- Data from the server -> **TanStack Query** (not a global store).
+- Pure UI state (open modals, selected filters, theme) -> **Zustand**.
+
+## Multi-tenant (school scoping)
+- Every server query key MUST include `schoolId`, e.g. `["students", schoolId]`.
+- The API client attaches the current school context to requests.
+- Never cache server data with a key that omits the school — it can leak between tenants.
+
+## Auth & routing
+- Next.js file-based routes, grouped by role (admin area, teacher area).
+- JWT **access + refresh** handled in the API client with silent refresh; tokens in http-only cookie / secure storage.
+- `useAuth` guards protected routes and redirects unauthenticated users.
+- UI may hide actions a role can't perform, but the backend is the source of truth for permissions.
