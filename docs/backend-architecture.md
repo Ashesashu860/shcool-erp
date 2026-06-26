@@ -1,18 +1,16 @@
-# Product Architecture
-
-> This is the combined overview. For focused, surface-specific docs see [web-architecture.md](web-architecture.md) (Next.js dashboard), [mobile-architecture.md](mobile-architecture.md) (Flutter app), and [backend-architecture.md](backend-architecture.md) (NestJS server, database, patterns).
+# Backend Architecture
 
 ## How to read this doc
 
-The hardest part of a school ERP is **not** picking React, NestJS, or PostgreSQL. The hard part shows up 2-3 years later, once you have dozens of modules (fees, attendance, exams, transport, notifications, hostel, library...) all tangled together. At that point, a small change in one place quietly breaks three others, and new features slow to a crawl.
+The hardest part of a school ERP is **not** picking NestJS or PostgreSQL. The hard part shows up 2-3 years later, once you have dozens of modules (fees, attendance, exams, transport, notifications, hostel, library...) all tangled together. At that point, a small change in one place quietly breaks three others, and new features slow to a crawl.
 
-This document describes a way of organizing the code so that the system stays **easy to change** as it grows from one school to a thousand. For every concept below you'll find three things:
+This document describes a way of organizing the **server-side** code so that the system stays **easy to change** as it grows from one school to a thousand. For every concept below you'll find three things:
 
 - **What it is** - a plain-English definition.
 - **Why it matters here** - the real school problem it solves.
 - **Example** - a concrete case using students, fees, or attendance.
 
-You don't have to adopt everything on day one. Treat this as the target shape the codebase grows into.
+You don't have to adopt everything on day one. Treat this as the target shape the codebase grows into. For the client side, see [web-architecture.md](web-architecture.md) (Next.js dashboard) and [mobile-architecture.md](mobile-architecture.md) (Flutter app).
 
 ---
 
@@ -289,56 +287,7 @@ class_id                 date
 
 ---
 
-## 5. Frontend Architecture
-
-### Feature-based structure
-
-**What it is.** Organize the frontend by *feature* (students, attendance, fees), not by file *type* (all components in one folder, all hooks in another).
-
-**Why it matters here.** With type-based folders, working on "fees" means hopping between `components/`, `hooks/`, `api/`, and `pages/` across hundreds of files. Feature folders keep everything for one area together, so the code is easy to find and safe to delete.
-
-**Avoid:**
-
-```
-components/   pages/   hooks/    (hundreds of mixed files)
-```
-
-**Prefer:**
-
-```
-features/
-├── students/
-├── attendance/
-├── exams/
-├── fees/
-└── transport/
-```
-
-Each feature contains its own slice of everything:
-
-```
-features/fees/
-├── api/
-├── components/
-├── hooks/
-├── types/
-└── pages/
-```
-
-### State management
-
-There are two different kinds of state, and they need different tools:
-
-- **Server state** (data that lives in the database - student lists, fees, results): use **TanStack Query**. It handles fetching, caching, and refetching for you.
-- **Client state** (purely UI state - open modals, selected filters, theme): use **Zustand**. It's small and simple.
-
-Avoid Redux unless the team already knows and prefers it - it's usually more ceremony than this app needs.
-
-> Rule of thumb: if the data comes from the server, it's TanStack Query's job, not a global store's.
-
----
-
-## 6. CQRS Lite
+## 5. CQRS Lite
 
 **What it is.** Separate the code that **reads** data (Queries) from the code that **changes** data (Commands). "Lite" means just this separation - no event sourcing, no separate databases.
 
@@ -356,7 +305,7 @@ You don't need full event sourcing - just a clear command/query split.
 
 ---
 
-## 7. Vertical Slice Development
+## 6. Vertical Slice Development
 
 **What it is.** Build the product one whole feature at a time - all the way from the screen down to the database - instead of building every controller first, then every service, then every table.
 
@@ -388,7 +337,7 @@ Vertical (working features early):
 
 ---
 
-## 8. Testing Strategy
+## 7. Testing Strategy
 
 Test at three levels, each for what it's best at:
 
@@ -402,7 +351,7 @@ Test at three levels, each for what it's best at:
 
 ---
 
-## 9. End-to-end walkthrough: "Collect a fee"
+## 8. End-to-end walkthrough: "Collect a fee"
 
 This ties every concept together. Here's what happens when an admin records a fee payment, layer by layer:
 
@@ -462,16 +411,19 @@ Notice how each pattern did exactly one job, and nothing reached across boundari
 
 ---
 
-## 10. The Tech Lead blueprint
+## 9. Backend tech stack
 
-If I were leading this build, here's the target shape:
+| Area | Choice | Why |
+| --- | --- | --- |
+| **Framework** | NestJS + TypeScript | Structured architecture, DI, validation, background jobs - great for large projects |
+| **Database** | PostgreSQL | Reliable, ACID-compliant, handles students/fees/attendance/exams/reports well |
+| **ORM** | Prisma | Excellent TypeScript support, easy migrations, great DX |
+| **Auth** | JWT access + refresh tokens, OTP login | OTP for parents via Firebase / MSG91 / Twilio |
+| **File storage** | AWS S3 (or Cloudflare R2) | Student photos, documents, assignments, report cards; R2 is often cheaper |
+| **Push notifications** | Firebase Cloud Messaging (FCM) | Attendance alerts, fee reminders, homework, announcements |
+| **Payments** | Razorpay (and Cashfree) | India-focused; Razorpay is easier to integrate first |
+| **Real-time** | Socket.IO | Chat, live announcements, bus tracking |
+| **Hosting (budget)** | Hetzner Cloud + PostgreSQL + Docker | Many schools at low cost |
+| **Hosting (enterprise)** | AWS (RDS, ECS, S3, CloudFront) | Managed scaling |
 
-| Area | Choices |
-| --- | --- |
-| **Frontend** | Next.js, TypeScript, TanStack Query, Zustand, feature-based structure |
-| **Backend** | NestJS, Clean Architecture, DDD Lite, Repository Pattern, Use Cases, CQRS Lite, event-driven internally |
-| **Database** | PostgreSQL, Prisma, multi-tenant (`school_id` everywhere) |
-| **Infrastructure** | Docker, Redis, AWS S3 / Cloudflare R2, FCM, Razorpay |
-| **Development** | Vertical slice development, feature flags, CI/CD, automated testing |
-
-Put together, this gives you a codebase that can comfortably grow from **1 school to 1000+ schools** without requiring a rewrite.
+Put together with the [web](web-architecture.md) and [mobile](mobile-architecture.md) clients, this gives you a codebase that can comfortably grow from **1 school to 1000+ schools** without requiring a rewrite.

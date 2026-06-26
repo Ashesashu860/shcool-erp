@@ -27,17 +27,21 @@ Since you already have a strong JavaScript/TypeScript background, a TypeScript-f
 - Excellent admin dashboard experience
 - Huge ecosystem
 
+> See [web-tech-stack.md](web-tech-stack.md) for the full web client stack (state, forms, tables, charts, testing, tooling).
+
 ### Mobile App
 
-- React Native
-- Expo
-- TypeScript
+- Flutter
+- Dart
 
 **Benefits:**
 
 - Single codebase for Android + iOS
-- Faster development than native apps
+- Smooth, consistent UI across platforms
+- Fast development with hot reload
 - Easier maintenance
+
+> See [mobile-tech-stack.md](mobile-tech-stack.md) for the full mobile client stack (state, networking, storage, notifications, device features, testing).
 
 ### Backend
 
