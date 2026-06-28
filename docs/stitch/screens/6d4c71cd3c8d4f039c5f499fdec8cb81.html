@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Manage Classes - ScholarSync</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2e3039",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-container": "#2563eb",
+                    "secondary": "#505f76",
+                    "on-surface": "#191b23",
+                    "on-primary-container": "#eeefff",
+                    "outline-variant": "#c3c6d7",
+                    "background": "#faf8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e1e2ed",
+                    "surface-container": "#ededf9",
+                    "inverse-primary": "#b4c5ff",
+                    "tertiary-container": "#bc4800",
+                    "surface-bright": "#faf8ff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary": "#943700",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#0053db",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-surface-variant": "#434655",
+                    "on-error": "#ffffff",
+                    "primary": "#004ac6",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface": "#faf8ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-background": "#191b23",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-container-highest": "#e1e2ed",
+                    "surface-container-high": "#e7e7f3",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "outline": "#737686",
+                    "surface-dim": "#d9d9e5",
+                    "inverse-on-surface": "#f0f0fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "base_unit": "8px",
+                    "margin_desktop": "40px",
+                    "sm": "8px",
+                    "margin_mobile": "16px",
+                    "sidebar_width": "280px",
+                    "gutter": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "code": ["Geist"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        body { -webkit-tap-highlight-color: transparent; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface-bright border-b border-outline-variant flex justify-between items-center px-margin_mobile md:px-margin_desktop h-16 w-full ml-0 lg:ml-[280px] lg:w-[calc(100%-280px)]">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, professional headshot of a female academic administrator with a warm expression, set against a blurred office environment. The lighting is bright and high-key, reinforcing a modern light-mode corporate aesthetic. Her attire is professional and minimalist, matching the ScholarSync brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsxgykzFtHvC7yuaYLXwqsb5mASljWUgkPhKawBbPtOOnDfLyzmjQsVsLFvXjpTdRbHHqqA26tMv35S12QZxnHI6P25-IDrAtppSpcy0urNyEAmBZfVSNB-B3We5pqm-twHCDuaZS-I00dzH5Nn2q61cgQ5-DSJqkWdP1PUiyuwTJA5ZQZC1THWtdKzcmnV-CLHUlUm-ruN-KhnnfNSTe1Hfh8SOqMR1kpljZkQ3MYSZGBW1WHY3AQUdJ_AF2i5qxC4NORg0vrbZhT"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col h-full py-6 w-[280px] h-screen fixed left-0 top-0 border-r border-outline-variant bg-surface">
+<div class="px-6 mb-8">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Academic Admin</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-xl px-4 py-3 border-l-4 border-primary scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Classes</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">person_4</span>
+<span class="font-label-md text-label-md">Teachers</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+</nav>
+<div class="px-2 mt-auto">
+<button class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high w-full rounded-xl transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-[280px] p-margin_mobile pb-24 min-h-screen transition-all duration-300">
+<!-- Header & Search Context -->
+<div class="mb-lg space-y-4">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Manage Classes</h2>
+<p class="text-secondary font-body-md">24 Active Classrooms</p>
+</div>
+</div>
+<!-- Mobile Optimized Filters -->
+<div class="flex flex-col gap-3">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-outline" placeholder="Search classes, teachers..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full shrink-0">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="font-label-md text-label-md">All Semesters</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant border border-outline-variant rounded-full shrink-0">
+<span class="font-label-md text-label-md">Grade 10</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant border border-outline-variant rounded-full shrink-0">
+<span class="font-label-md text-label-md">Grade 11</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant border border-outline-variant rounded-full shrink-0">
+<span class="font-label-md text-label-md">Grade 12</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Class Cards Grid -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Class Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary bg-primary-container/20 px-2 py-0.5 rounded w-fit mb-1">Mathematics</span>
+<h3 class="font-title-md text-title-md text-on-surface">Advanced Calculus</h3>
+<p class="text-secondary font-label-md">Section A-102</p>
+</div>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a male teacher in his late 40s, wearing glasses and a professional navy blazer. The lighting is soft and natural, emphasizing a professional yet approachable academic persona. The background is a clean, minimal white-walled classroom. High-resolution corporate headshot style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_cpXHQjm6NI8eQ129lXmbIL_4nPQD2f9X_ZtxwnI67D07J3RLWvv5R3WmWVk5T0sDJrowJIC35Kge-_xsYMt4B8FMMO91XtyDI7o31z810M1c0guEv6HSsbOEt3FQlyQ9_SCaF2wbVwklV9uviFC4ESTGNEAvvrnFixyBMdWuo4lxDI3yYTrbVqSTJ6USLAL2fXIYktnuYHHpCgSY45qjftEbIYvJd_notXH0tC-1cL0tCXt2spsMb13qAEWVfZvTBHDwjdDx2rnM"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Dr. Robert Chen</span>
+<span class="text-[10px] text-secondary">Lead Educator</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container rounded-lg px-2 py-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="font-label-md text-label-md">32</span>
+</div>
+</div>
+</div>
+<!-- Class Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-tertiary-container bg-tertiary-fixed/20 px-2 py-0.5 rounded w-fit mb-1">Science</span>
+<h3 class="font-title-md text-title-md text-on-surface">Organic Chemistry</h3>
+<p class="text-secondary font-label-md">Section B-204</p>
+</div>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a middle-aged female teacher with curly hair, smiling warmly. She is wearing a professional cream-colored sweater. The background is slightly out of focus, showing a modern laboratory setting with clean equipment. The lighting is bright and cheerful, suggesting a positive learning environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAeQ6mH8LC8Xl8AN3Y9fPaDXfw3MdaqR4BJhdTKcAWR2CQPTKZ_Nx6hpWuuwwumwEQz4jpqAHVCZ6QmxcSYN-PjLdbf5Qvgg1lGCOwETlddXRcxEeihHRepKuBXY0a1Ma_vY4cPbeJiwNpSPaFMoVN6Exd1t0pXVe5cbhBiSH8UDHfDPMTmH-e29UkoYrAGmxSuYhi9zLTKSOMWDaIlcNef459xndz9CS6nRoXidI-evw43EmlB4T2IjaHaA846ta0Uz1xIwuFzXGk"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Prof. Sarah Jenkins</span>
+<span class="text-[10px] text-secondary">Department Head</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container rounded-lg px-2 py-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="font-label-md text-label-md">28</span>
+</div>
+</div>
+</div>
+<!-- Class Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-secondary-fixed-variant bg-secondary-fixed/30 px-2 py-0.5 rounded w-fit mb-1">Languages</span>
+<h3 class="font-title-md text-title-md text-on-surface">World Literature</h3>
+<p class="text-secondary font-label-md">Section C-003</p>
+</div>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young male teacher with a neat beard, wearing a charcoal grey shirt. He is sitting in a minimalist library or study area. The lighting is calm and focused, creating an intellectual and contemporary atmosphere. High-end photography with shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfXeG0_r_DevikthWN8rSyo3v4k7-EVK1KwaEUhx1B-t6ke2tiRwq_95I6aPbOO6EUIqEKFgv2RA_nmNJH19Xz_azXxCmU6FdRS36sVGpG8RJ6dfyeVcnOZalN09PR_Gw0mYN-3XGh5jD3P_4g1jQav4yU129ZTPe51B2UtJ6nhLynahaXfGmpvrxSTc_IIEILHuyOle01dgzHjhwMyivNlwuMFtxpNtengBDQnaP2rAEK_Js0Dp18UQAJEscVn94KWZKZGUsy3tqB"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Mr. David Okafor</span>
+<span class="text-[10px] text-secondary">Senior Lecturer</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container rounded-lg px-2 py-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="font-label-md text-label-md">45</span>
+</div>
+</div>
+</div>
+<!-- Class Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-primary-fixed-variant bg-primary-fixed/30 px-2 py-0.5 rounded w-fit mb-1">History</span>
+<h3 class="font-title-md text-title-md text-on-surface">Modern World History</h3>
+<p class="text-secondary font-label-md">Section D-110</p>
+</div>
+<button class="p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a distinguished older male teacher with grey hair and a friendly face. He is wearing a tweed jacket over a light blue shirt. The background is a warm, wood-paneled room suggesting a traditional academic office. Soft, golden hour lighting through a window." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rTC6W1OloR4rUeXbzEjBQ6SRN9-Wqbg1-VvT4OEAEA0-TeuVphta6YdbgSi4sopJ9WHMTTJ-KdE5CkzFaTPbfX1mSvKxwNJk-UyfFBhFcwk0F-3r81Tn7YCBaywIEmzXRwKL5ZN07PTeldPwkbiCEDDTg-oOEMovA8OG1Exo6nYxjP4TYl6aaYtwbcF8pyOquDSdEvM5sUiEbzjCXctqPbtjgFx2W3gDgGSvUIkLm6cI5kH_TTEaiLW1CSxm9ONlk4fm_FNRR_QX"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Dr. Arthur Vance</span>
+<span class="text-[10px] text-secondary">Professor Emeritus</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant bg-surface-container rounded-lg px-2 py-1">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="font-label-md text-label-md">22</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center z-50 active:scale-90 transition-transform hover:bg-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-highlight-transparent active:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md text-[10px]">Classes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-highlight-transparent active:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md text-[10px]">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 tap-highlight-transparent active:bg-surface-container-highest rounded-xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.grid > div').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.classList.add('scale-[0.98]');
+            });
+            card.addEventListener('touchend', () => {
+                card.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary');
+        });
+    </script>
+</body></html>

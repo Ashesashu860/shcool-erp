@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ScholarSync | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3039",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-container": "#2563eb",
+                        "secondary": "#505f76",
+                        "on-surface": "#191b23",
+                        "on-primary-container": "#eeefff",
+                        "outline-variant": "#c3c6d7",
+                        "background": "#faf8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-variant": "#e1e2ed",
+                        "surface-container": "#ededf9",
+                        "inverse-primary": "#b4c5ff",
+                        "tertiary-container": "#bc4800",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary": "#943700",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#ffede6",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#54647a",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#d0e1fb",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-fixed": "#360f00",
+                        "on-surface-variant": "#434655",
+                        "on-error": "#ffffff",
+                        "primary": "#004ac6",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface": "#faf8ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-background": "#191b23",
+                        "surface-container-low": "#f3f3fe",
+                        "surface-container-highest": "#e1e2ed",
+                        "surface-container-high": "#e7e7f3",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "outline": "#737686",
+                        "surface-dim": "#d9d9e5",
+                        "inverse-on-surface": "#f0f0fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "base_unit": "8px",
+                        "margin_desktop": "40px",
+                        "sm": "8px",
+                        "margin_mobile": "16px",
+                        "sidebar_width": "280px",
+                        "gutter": "24px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "code": ["Geist"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-effect { background: rgba(250, 248, 255, 0.8); backdrop-filter: blur(12px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface-bright border-b border-outline-variant flex justify-between items-center px-4 h-16 glass-effect">
+<div class="flex items-center gap-3">
+<span class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-surface-container rounded-lg transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged academic administrator with a warm smile, wearing modern glasses and professional attire. The background is a soft-focus academic setting with warm sunlight and clean white surfaces, maintaining a bright and authoritative light-mode aesthetic consistent with high-end enterprise software interfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuCUF1x4zgNrVrNPpUWNEcdG3eJSd7QoskeXgdwst0z74qfit4BmMw7deStay_tMjxcZFlizdVV5OKUaxr8vQmPiIG7r5NfOhKEF8g5Cq0Zccy0r7X1_AoGyHCoZSPFrOrkcb301YC3FNkC9dDaYqqrZG0rGg9X65he7gSCuA3Z4IlYBi2Gj0BmlLf0z1yuCaCnkNO9oKkfyTsTXXw1S8kYQSmPpDzzA20nlbMcsZhbAOWjamqNp_lsvd_yAd2SUeQLAGk_1OM1tZP"/>
+</div>
+</div>
+</header>
+<main class="px-4 py-6 space-y-6">
+<!-- Welcome Header -->
+<section class="space-y-1">
+<h1 class="font-headline-md text-headline-md-mobile text-on-surface">Welcome back, Admin</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Here is what's happening today at ScholarSync.</p>
+</section>
+<!-- Search Bar -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-12 pr-4 font-body-md focus:ring-2 focus:ring-primary" placeholder="Search students, classes, or reports..." type="text"/>
+</div>
+<!-- Quick Metrics (Horizontal Scroll) -->
+<section>
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-title-md text-title-md text-on-surface">Core Metrics</h2>
+<button class="text-primary font-label-md">View Analytics</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2 snap-x">
+<!-- Classes Card -->
+<div class="min-w-[160px] flex-shrink-0 snap-start bg-primary-container text-on-primary-container p-4 rounded-xl space-y-2">
+<span class="material-symbols-outlined">school</span>
+<div class="space-y-0.5">
+<p class="font-label-md opacity-80">Classes</p>
+<p class="font-headline-md font-bold">42</p>
+</div>
+</div>
+<!-- Teachers Card -->
+<div class="min-w-[160px] flex-shrink-0 snap-start bg-secondary-container text-on-secondary-container p-4 rounded-xl space-y-2">
+<span class="material-symbols-outlined">person_4</span>
+<div class="space-y-0.5">
+<p class="font-label-md opacity-80">Teachers</p>
+<p class="font-headline-md font-bold">128</p>
+</div>
+</div>
+<!-- Students Card -->
+<div class="min-w-[160px] flex-shrink-0 snap-start bg-surface-container-highest text-on-surface p-4 rounded-xl border border-outline-variant space-y-2">
+<span class="material-symbols-outlined">group</span>
+<div class="space-y-0.5">
+<p class="font-label-md text-on-surface-variant">Students</p>
+<p class="font-headline-md font-bold">1,450</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions (Bento Style) -->
+<section class="space-y-3">
+<h2 class="font-title-md text-title-md text-on-surface">Quick Actions</h2>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-start p-4 bg-surface-container-low rounded-xl border border-outline-variant hover:bg-surface-container-high transition-all active:scale-95 text-left gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-md text-on-surface font-semibold">New Student</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-surface-container-low rounded-xl border border-outline-variant hover:bg-surface-container-high transition-all active:scale-95 text-left gap-2">
+<span class="material-symbols-outlined text-tertiary">assignment_add</span>
+<span class="font-label-md text-on-surface font-semibold">Schedule Class</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-surface-container-low rounded-xl border border-outline-variant hover:bg-surface-container-high transition-all active:scale-95 text-left gap-2">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<span class="font-label-md text-on-surface font-semibold">Send Notice</span>
+</button>
+<button class="flex flex-col items-start p-4 bg-surface-container-low rounded-xl border border-outline-variant hover:bg-surface-container-high transition-all active:scale-95 text-left gap-2">
+<span class="material-symbols-outlined text-error">analytics</span>
+<span class="font-label-md text-on-surface font-semibold">Run Report</span>
+</button>
+</div>
+</section>
+<!-- Recent Activity (Asymmetric List) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-on-surface">Recent Activity</h2>
+<button class="text-primary font-label-md">See All</button>
+</div>
+<div class="space-y-3">
+<!-- Activity Item 1 -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant items-center">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary-fixed text-lg">person_add</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface font-medium">New Student Enrolled</p>
+<p class="font-label-md text-on-surface-variant">Julianne Moore joined Grade 10-B</p>
+</div>
+<p class="font-label-md text-on-surface-variant whitespace-nowrap">2m ago</p>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant items-center">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-lg">edit_note</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface font-medium">Grades Published</p>
+<p class="font-label-md text-on-surface-variant">Mathematics Midterm Results</p>
+</div>
+<p class="font-label-md text-on-surface-variant whitespace-nowrap">1h ago</p>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-xl border border-outline-variant items-center">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed text-lg">payments</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface font-medium">Fee Payment</p>
+<p class="font-label-md text-on-surface-variant">Recieved from Parent: John Smith</p>
+</div>
+<p class="font-label-md text-on-surface-variant whitespace-nowrap">3h ago</p>
+</div>
+</div>
+</section>
+<!-- Attendance Chart Preview (Simulated) -->
+<section class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Attendance Overview</h2>
+<p class="font-label-md text-on-surface-variant">Daily average: 94%</p>
+</div>
+<select class="bg-transparent border-none font-label-md text-primary focus:ring-0">
+<option>This Week</option>
+<option>This Month</option>
+</select>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-32 flex items-end justify-between gap-2 pt-4">
+<div class="w-full bg-surface-container h-[70%] rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[85%] rounded-t-lg transition-all duration-500"></div>
+</div>
+<div class="w-full bg-surface-container h-[70%] rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[92%] rounded-t-lg transition-all duration-500"></div>
+</div>
+<div class="w-full bg-surface-container h-[70%] rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[88%] rounded-t-lg transition-all duration-500"></div>
+</div>
+<div class="w-full bg-surface-container h-[70%] rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary h-[95%] rounded-t-lg transition-all duration-500"></div>
+</div>
+<div class="w-full bg-surface-container h-[70%] rounded-t-lg relative group">
+<div class="absolute bottom-0 w-full bg-primary-container h-[60%] rounded-t-lg transition-all duration-500"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 lg:hidden flex justify-around items-center px-4 py-2 pb-safe border-t border-outline-variant bg-surface glass-effect shadow-lg">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md-mobile mt-0.5">Home</span>
+</a>
+<!-- Classes -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md-mobile mt-0.5">Classes</span>
+</a>
+<!-- Students -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md-mobile mt-0.5">Students</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md-mobile mt-0.5">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (Only on Home/Dashboard) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-30">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+<script>
+        // Simple micro-interactions for the cards
+        document.querySelectorAll('.snap-start').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+        // Pull to refresh simulation or basic feedback
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                // downscroll
+            } else {
+                // upscroll
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+    </script>
+</body></html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarSync | Create Student</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .tap-highlight-transparent {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#ffb596",
+                "surface-bright": "#faf8ff",
+                "on-background": "#191b23",
+                "surface-variant": "#e1e2ed",
+                "on-tertiary-fixed": "#360f00",
+                "on-tertiary": "#ffffff",
+                "background": "#faf8ff",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#ffede6",
+                "on-primary-fixed": "#00174b",
+                "secondary-fixed-dim": "#b7c8e1",
+                "on-secondary-fixed": "#0b1c30",
+                "on-surface-variant": "#434655",
+                "tertiary-fixed": "#ffdbcd",
+                "secondary-fixed": "#d3e4fe",
+                "outline": "#737686",
+                "inverse-on-surface": "#f0f0fb",
+                "tertiary": "#943700",
+                "inverse-surface": "#2e3039",
+                "surface-container-low": "#f3f3fe",
+                "surface-tint": "#0053db",
+                "surface-dim": "#d9d9e5",
+                "on-secondary-fixed-variant": "#38485d",
+                "on-error": "#ffffff",
+                "tertiary-container": "#bc4800",
+                "error": "#ba1a1a",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "surface-container-highest": "#e1e2ed",
+                "primary-fixed-dim": "#b4c5ff",
+                "inverse-primary": "#b4c5ff",
+                "secondary-container": "#d0e1fb",
+                "on-primary-fixed-variant": "#003ea8",
+                "surface-container": "#ededf9",
+                "on-secondary-container": "#54647a",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#191b23",
+                "primary": "#004ac6",
+                "surface-container-high": "#e7e7f3",
+                "surface": "#faf8ff",
+                "on-primary-container": "#eeefff",
+                "secondary": "#505f76",
+                "outline-variant": "#c3c6d7",
+                "on-primary": "#ffffff",
+                "primary-container": "#2563eb",
+                "primary-fixed": "#dbe1ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "base_unit": "8px",
+                "margin_mobile": "16px",
+                "sm": "8px",
+                "md": "16px",
+                "xl": "32px",
+                "sidebar_width": "280px",
+                "xs": "4px",
+                "margin_desktop": "40px",
+                "gutter": "24px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "body-lg": ["Inter"],
+                "title-md": ["Inter"],
+                "body-md": ["Inter"],
+                "display-lg": ["Geist"],
+                "headline-lg": ["Geist"],
+                "code": ["Geist"],
+                "headline-md": ["Geist"],
+                "label-md": ["Inter"],
+                "headline-lg-mobile": ["Geist"]
+            },
+            "fontSize": {
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-fixed-dim">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden lg:flex flex-col h-full py-6 w-[280px] h-screen fixed left-0 top-0 bg-surface border-r border-outline-variant">
+<div class="px-6 mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">school</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Classes</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">person_4</span>
+<span class="font-label-md text-label-md">Teachers</span>
+</a>
+<a class="flex items-center gap-3 bg-secondary-container text-on-secondary-container rounded-xl px-4 py-3 border-l-4 border-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">family_restroom</span>
+<span class="font-label-md text-label-md">Parents</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-md text-label-md">Principals</span>
+</a>
+<a class="flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full flex items-center gap-3 text-secondary px-4 py-3 hover:bg-surface-container-high transition-colors rounded-xl">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-4 md:px-10 h-16 w-full ml-0 lg:ml-[280px] lg:w-[calc(100%-280px)] sticky top-0 z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md font-bold text-primary lg:hidden">ScholarSync</h2>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Create Student</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Directory</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Attendance</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Global search..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center border border-outline-variant overflow-hidden">
+<img alt="ScholarSync Admin" data-alt="A professional headshot of a school administrator in a bright, modern office setting. High-key lighting highlights the clean, professional attire and friendly expression. The background is softly blurred to emphasize the subject while maintaining a sense of academic professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOR6mLDAOUdW31AsuUwsMmlYfd-VlWUbe85GY2nQuo5KLw44uS84PMUk6gFy8mGemZuw5C-kWo5Q7Z4Osf9rsS0f0d1pmWDIRDAHbDimUpcFnpBXaNYnmor_YYQKhaXG7ECUc-OGKZpmWO6oxUlUYPhnIpY8e-ItHvqkqKEkFUcv0gsU0zB9GAanYgZbe7NrQVYQSR4K9NQYicBDwi4EhUSWUt_ll0NluyR6pvswkpkZlMA77rkOka_VhbAVyyIRdCJZGdWIN_1EB7"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-0 lg:ml-[280px] p-4 md:p-10 pb-24 lg:pb-10 min-h-screen bg-background">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex text-xs text-on-surface-variant mb-2 gap-2">
+<span>Students</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-medium">New Admission</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Register New Student</h1>
+<p class="text-on-surface-variant mt-1">Complete all fields to enroll a new student into the Academic Year 2024-25.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 border border-outline rounded-xl font-label-md text-on-surface-variant hover:bg-surface-container transition-colors">Discard</button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-xl font-label-md shadow-lg shadow-primary/20 hover:bg-primary-container transition-all active:scale-[0.98]">Save Admission</button>
+</div>
+</div>
+<!-- Stepper -->
+<div class="mt-8 flex items-center max-w-2xl">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">1</div>
+<span class="font-label-md text-primary">Student Details</span>
+</div>
+<div class="flex-1 h-[1px] bg-outline-variant mx-4"></div>
+<div class="flex items-center gap-2 opacity-50">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center font-bold text-sm">2</div>
+<span class="font-label-md">Parental Info</span>
+</div>
+<div class="flex-1 h-[1px] bg-outline-variant mx-4"></div>
+<div class="flex items-center gap-2 opacity-50">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center font-bold text-sm">3</div>
+<span class="font-label-md">Review</span>
+</div>
+</div>
+</div>
+<!-- Form Layout: Asymmetric Bento Grid Style -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Left Column: Personal & Academic -->
+<div class="xl:col-span-2 space-y-8">
+<!-- Section 1: Personal Information -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm transition-shadow hover:shadow-md">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 bg-primary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<h3 class="font-title-md text-title-md">Personal Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10">
+<!-- Photo Upload -->
+<div class="md:col-span-1 flex flex-col items-center gap-4">
+<div class="w-32 h-40 rounded-xl bg-surface-container-high border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-on-surface-variant relative group overflow-hidden cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2">add_a_photo</span>
+<span class="text-[10px] uppercase font-bold tracking-wider">Upload Photo</span>
+<!-- Hover state overlay -->
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<div class="bg-white/90 p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-primary">edit</span>
+</div>
+</div>
+</div>
+<p class="text-[10px] text-center text-on-surface-variant px-2">PNG or JPG. Max 5MB. Aspect ratio 4:5 recommended.</p>
+</div>
+<!-- Identity Inputs -->
+<div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">First Name</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="e.g. Julian" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Last Name</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="e.g. Casablancas" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Date of Birth</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Gender</label>
+<div class="flex gap-2">
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="gender" type="radio"/>
+<div class="py-3 text-center rounded-xl border border-outline-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all text-sm font-medium">Male</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="gender" type="radio"/>
+<div class="py-3 text-center rounded-xl border border-outline-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all text-sm font-medium">Female</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="gender" type="radio"/>
+<div class="py-3 text-center rounded-xl border border-outline-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all text-sm font-medium">Other</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Academic Details -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm transition-shadow hover:shadow-md">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-secondary">school</span>
+</div>
+<h3 class="font-title-md text-title-md">Academic Enrollment</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Grade/Class</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface">
+<option>Select Class</option>
+<option>Grade 9</option>
+<option>Grade 10</option>
+<option>Grade 11</option>
+<option>Grade 12</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Section</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface">
+<option>Select Section</option>
+<option>Section A</option>
+<option>Section B</option>
+<option>Section C</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Academic Session</label>
+<select class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface">
+<option>2024-2025</option>
+<option>2023-2024</option>
+</select>
+</div>
+<div class="md:col-span-3 space-y-2">
+<label class="font-label-md text-on-surface">Admission Number (Auto-Generated)</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container-high text-on-surface-variant font-code cursor-not-allowed" disabled="" type="text" value="SCH-2024-0892"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Contact & Parent Linking -->
+<div class="space-y-8">
+<!-- Section 3: Contact Details -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm transition-shadow hover:shadow-md">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 bg-tertiary-fixed rounded-lg">
+<span class="material-symbols-outlined text-tertiary">contact_page</span>
+</div>
+<h3 class="font-title-md text-title-md">Contact</h3>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Student Email (Optional)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">mail</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="student@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Emergency Phone</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">call</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface">Residential Address</label>
+<textarea class="w-full px-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface resize-none" placeholder="Enter complete home address" rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Section 4: Link Parent (Interactive) -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-sm transition-shadow hover:shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-8xl">family_restroom</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-2 bg-primary-container rounded-lg">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">link</span>
+</div>
+<h3 class="font-title-md text-title-md">Parent Connection</h3>
+</div>
+<div class="space-y-6">
+<!-- Toggle Search/New -->
+<div class="flex bg-surface-container p-1 rounded-xl">
+<button class="flex-1 py-2 text-xs font-bold bg-white rounded-lg shadow-sm text-primary transition-all" id="tab-search">Search Existing</button>
+<button class="flex-1 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-all" id="tab-new">Register New</button>
+</div>
+<div class="space-y-4" id="parent-search-view">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">person_search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="Search by name or UID..." type="text"/>
+</div>
+<div class="p-4 border border-dashed border-outline-variant rounded-xl flex items-center gap-4 text-on-surface-variant">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">info</span>
+</div>
+<p class="text-xs">Connecting a parent allows shared billing and communication for multiple siblings.</p>
+</div>
+</div>
+<!-- Hidden New Parent Mini Form (Logic handled by simple JS) -->
+<div class="space-y-4 hidden animate-in fade-in slide-in-from-top-2 duration-300" id="parent-new-view">
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface" placeholder="Parent Full Name" type="text"/>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface" placeholder="Parent Email" type="email"/>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface" placeholder="Parent Phone Number" type="tel"/>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Sticky Mobile CTA -->
+<div class="fixed bottom-16 left-0 right-0 p-4 bg-surface/80 backdrop-blur-md border-t border-outline-variant lg:hidden flex gap-3">
+<button class="flex-1 py-3 border border-outline rounded-xl font-label-md text-on-surface-variant">Cancel</button>
+<button class="flex-[2] py-3 bg-primary text-on-primary rounded-xl font-label-md shadow-lg shadow-primary/20">Finalize Admission</button>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface border-t border-outline-variant shadow-lg">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest rounded-xl">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px] mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest rounded-xl">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-[10px] mt-1">Classes</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-[10px] mt-1">Students</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest rounded-xl">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[10px] mt-1">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple Interaction Logic
+        const tabSearch = document.getElementById('tab-search');
+        const tabNew = document.getElementById('tab-new');
+        const searchView = document.getElementById('parent-search-view');
+        const newView = document.getElementById('parent-new-view');
+
+        tabSearch.addEventListener('click', () => {
+            tabSearch.classList.add('bg-white', 'shadow-sm', 'text-primary');
+            tabSearch.classList.remove('text-on-surface-variant');
+            tabNew.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+            tabNew.classList.add('text-on-surface-variant');
+            searchView.classList.remove('hidden');
+            newView.classList.add('hidden');
+        });
+
+        tabNew.addEventListener('click', () => {
+            tabNew.classList.add('bg-white', 'shadow-sm', 'text-primary');
+            tabNew.classList.remove('text-on-surface-variant');
+            tabSearch.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+            tabSearch.classList.add('text-on-surface-variant');
+            newView.classList.remove('hidden');
+            searchView.classList.add('hidden');
+        });
+    </script>
+</body></html>

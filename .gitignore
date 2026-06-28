@@ -43,6 +43,7 @@ next-env.d.ts
 # editor / os
 .idea/
 .vscode/
+.cursor/mcp.json
 *.swp
 
 # misc

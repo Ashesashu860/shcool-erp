@@ -1,0 +1,267 @@
+{
+  "name": "projects/12430849347074200927",
+  "title": "ScholarCore ERP MVP",
+  "visibility": "PUBLIC",
+  "createTime": "2026-06-27T20:23:59.268551Z",
+  "updateTime": "2026-06-28T05:51:22.115029Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "thumbnailScreenshot": {
+    "name": "projects/12430849347074200927/files/2d199660ecfb4767b7aa660aed5d2a1e",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLtn-MF3OKQL4F68_lTO1_fqoZP_tYX9ngZkPY8wWa8yexPKwe6O-gvTn0AFi2m3fAyfJsukOnoM45HG7GAasL4QTWAva09KSCPuBXJhpz7HQh3sW3Q1VzTlDlFzlUASr6jLewpfxE5ZiDeHShxvUXmAiuaNWYgB-MqF5xlMbeKr1prVxgB14uURvibXVQiphATn3GQjtng8ar6X8wjPPUJUH3NMBWeMn4FVstJltgOq3Cey5tQ7OSk9pQVX"
+  },
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "GEIST",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#2563eb",
+    "headlineFont": "GEIST",
+    "bodyFont": "INTER",
+    "labelFont": "INTER",
+    "namedColors": {
+      "background": "#faf8ff",
+      "error": "#ba1a1a",
+      "error_container": "#ffdad6",
+      "inverse_on_surface": "#f0f0fb",
+      "inverse_primary": "#b4c5ff",
+      "inverse_surface": "#2e3039",
+      "on_background": "#191b23",
+      "on_error": "#ffffff",
+      "on_error_container": "#93000a",
+      "on_primary": "#ffffff",
+      "on_primary_container": "#eeefff",
+      "on_primary_fixed": "#00174b",
+      "on_primary_fixed_variant": "#003ea8",
+      "on_secondary": "#ffffff",
+      "on_secondary_container": "#54647a",
+      "on_secondary_fixed": "#0b1c30",
+      "on_secondary_fixed_variant": "#38485d",
+      "on_surface": "#191b23",
+      "on_surface_variant": "#434655",
+      "on_tertiary": "#ffffff",
+      "on_tertiary_container": "#ffede6",
+      "on_tertiary_fixed": "#360f00",
+      "on_tertiary_fixed_variant": "#7d2d00",
+      "outline": "#737686",
+      "outline_variant": "#c3c6d7",
+      "primary": "#004ac6",
+      "primary_container": "#2563eb",
+      "primary_fixed": "#dbe1ff",
+      "primary_fixed_dim": "#b4c5ff",
+      "secondary": "#505f76",
+      "secondary_container": "#d0e1fb",
+      "secondary_fixed": "#d3e4fe",
+      "secondary_fixed_dim": "#b7c8e1",
+      "surface": "#faf8ff",
+      "surface_bright": "#faf8ff",
+      "surface_container": "#ededf9",
+      "surface_container_high": "#e7e7f3",
+      "surface_container_highest": "#e1e2ed",
+      "surface_container_low": "#f3f3fe",
+      "surface_container_lowest": "#ffffff",
+      "surface_dim": "#d9d9e5",
+      "surface_tint": "#0053db",
+      "surface_variant": "#e1e2ed",
+      "tertiary": "#943700",
+      "tertiary_container": "#bc4800",
+      "tertiary_fixed": "#ffdbcd",
+      "tertiary_fixed_dim": "#ffb596"
+    },
+    "designMd": "---\nname: ScholarSync\ncolors:\n  surface: '#faf8ff'\n  surface-dim: '#d9d9e5'\n  surface-bright: '#faf8ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f3f3fe'\n  surface-container: '#ededf9'\n  surface-container-high: '#e7e7f3'\n  surface-container-highest: '#e1e2ed'\n  on-surface: '#191b23'\n  on-surface-variant: '#434655'\n  inverse-surface: '#2e3039'\n  inverse-on-surface: '#f0f0fb'\n  outline: '#737686'\n  outline-variant: '#c3c6d7'\n  surface-tint: '#0053db'\n  primary: '#004ac6'\n  on-primary: '#ffffff'\n  primary-container: '#2563eb'\n  on-primary-container: '#eeefff'\n  inverse-primary: '#b4c5ff'\n  secondary: '#505f76'\n  on-secondary: '#ffffff'\n  secondary-container: '#d0e1fb'\n  on-secondary-container: '#54647a'\n  tertiary: '#943700'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#bc4800'\n  on-tertiary-container: '#ffede6'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dbe1ff'\n  primary-fixed-dim: '#b4c5ff'\n  on-primary-fixed: '#00174b'\n  on-primary-fixed-variant: '#003ea8'\n  secondary-fixed: '#d3e4fe'\n  secondary-fixed-dim: '#b7c8e1'\n  on-secondary-fixed: '#0b1c30'\n  on-secondary-fixed-variant: '#38485d'\n  tertiary-fixed: '#ffdbcd'\n  tertiary-fixed-dim: '#ffb596'\n  on-tertiary-fixed: '#360f00'\n  on-tertiary-fixed-variant: '#7d2d00'\n  background: '#faf8ff'\n  on-background: '#191b23'\n  surface-variant: '#e1e2ed'\ntypography:\n  display-lg:\n    fontFamily: Geist\n    fontSize: 48px\n    fontWeight: '700'\n    lineHeight: 56px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Geist\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: 40px\n    letterSpacing: -0.01em\n  headline-lg-mobile:\n    fontFamily: Geist\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  headline-md:\n    fontFamily: Geist\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n  title-md:\n    fontFamily: Inter\n    fontSize: 18px\n    fontWeight: '600'\n    lineHeight: 28px\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n  label-md:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\n    letterSpacing: 0.01em\n  code:\n    fontFamily: Geist\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  base_unit: 8px\n  xs: 4px\n  sm: 8px\n  md: 16px\n  lg: 24px\n  xl: 32px\n  gutter: 24px\n  margin_mobile: 16px\n  margin_desktop: 40px\n  sidebar_width: 280px\n---\n\n## Brand & Style\nThe design system is engineered for high-performance academic administration. The brand personality is authoritative yet unobtrusive, prioritizing clarity and speed. Drawing inspiration from modern developer tools and high-fidelity fintech interfaces, the style follows a **Modern Corporate Minimalism**.\n\nThe aesthetic utilizes expansive whitespace, high-contrast typography, and a \"function-over-form\" hierarchy. It balances the coldness of enterprise software with a refined, premium finish through subtle micro-interactions and rigorous grid alignment. The emotional goal is to provide a sense of absolute control and structural reliability for educators and administrators.\n\n## Colors\nThe palette is anchored by \"Scholar Blue,\" a vibrant, high-legibility primary color used for actions and focus states. The neutral scale is heavily influenced by Slate and Gray tones to maintain a cool, professional temperature.\n\n- **Surfaces**: We utilize a layered approach. The `surface_base` is pure white, while `surface_container` uses a soft blue-tinted gray to create logical groupings of information without relying on heavy borders.\n- **Typography**: Primary text is near-black for maximum contrast. Secondary and Muted variants allow for information density without visual clutter.\n- **Semantic**: Success, warning, and error colors are standard but calibrated for accessibility against both white and soft-gray backgrounds.\n\n## Typography\nThe system employs a dual-font strategy. **Geist** is used for headlines and display elements to provide a technical, modern edge with its precise geometry. **Inter** handles all body copy and labels to ensure maximum legibility and familiarity.\n\nHierarchy is enforced through strict weight distribution. Page titles use Semi-Bold or Bold weights with tight letter-spacing to command attention. Labels and metadata use Medium weights at smaller sizes to remain functional but distinct from body text.\n\n## Layout & Spacing\nThis design system is built on a rigorous **8px grid system**. All padding, margins, and component heights must be multiples of 8.\n\n- **Desktop**: Features a persistent left sidebar navigation (280px) with a fluid content area. Large dashboards utilize a 12-column grid.\n- **Mobile**: Transitions to a bottom-tab navigation for primary views. Margins are reduced to 16px, and complex tables reflow into card-based layouts.\n- **Sectioned Forms**: Use a 24px vertical rhythm between fields and 40px between logical sections to prevent cognitive overload.\n\n## Elevation & Depth\nElevation is achieved through a combination of **Tonal Layers** and **Ambient Shadows**. \n\n1. **Layer 0 (Base)**: The background of the application.\n2. **Layer 1 (Container)**: Used for content sections (cards, list items), defined by a subtle `#E2E8F0` border or a `surface_container` fill.\n3. **Layer 2 (Elevated)**: Used for modals, dropdowns, and popovers. These use a multi-layered soft shadow: `0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.05)`.\n\nAvoid heavy drop shadows on standard UI cards; rely instead on the contrast between the white card and the light gray background.\n\n## Shapes\nThe design system uses a standard **12px (0.75rem)** corner radius for primary containers and components to evoke a modern, approachable software feel. \n\n- **Standard (12px)**: Buttons, Input fields, Cards, and Modals.\n- **Small (6px)**: Checkboxes, inner nested tags, and small tooltips.\n- **Full (Pill)**: Status badges and search bars.\n\n## Components\n\n### Buttons\nPrimary buttons use the `primary_color_hex` with white text. Hover states shift the background to a darker blue. All buttons feature a 12px radius. Secondary buttons use a ghost style with `border_strong` and `text_secondary`.\n\n### Tables\nTables are high-density. Headers are **sticky**, using `surface_container` with a `border_subtle` bottom stroke. Row heights are fixed at 48px or 56px.\n\n### Forms\nInput fields utilize a 12px radius with a 1px `border_strong`. Focus states use a 2px `primary_color_hex` ring with an offset. Multi-step processes must include a **Stepper Indicator** at the top of the form, showing current, completed, and upcoming steps with distinctive icon states.\n\n### Cards\nCards are the primary layout vehicle. They use `surface_base`, a 12px radius, and a 1px `border_subtle`. For \"Elevated\" cards (e.g., student profiles), add the Layer 2 ambient shadow.\n\n### Navigation\n- **Sidebar**: High-contrast icons with `text_secondary`. Active states use a `primary_color_hex` left-accent bar and a soft blue background fill.\n- **Bottom-Nav (Mobile)**: Fixed to the viewport bottom with 4-5 primary destinations and clear labels.",
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#2563eb",
+    "overrideSecondaryColor": "#64748b",
+    "spacingScale": 2,
+    "typography": {
+      "body-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px"
+      },
+      "body-md": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20px"
+      },
+      "code": {
+        "fontFamily": "Geist",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "18px"
+      },
+      "display-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "48px",
+        "fontWeight": "700",
+        "lineHeight": "56px",
+        "letterSpacing": "-0.02em"
+      },
+      "headline-lg": {
+        "fontFamily": "Geist",
+        "fontSize": "32px",
+        "fontWeight": "600",
+        "lineHeight": "40px",
+        "letterSpacing": "-0.01em"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Geist",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px"
+      },
+      "headline-md": {
+        "fontFamily": "Geist",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px"
+      },
+      "label-md": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "0.01em"
+      },
+      "title-md": {
+        "fontFamily": "Inter",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "28px"
+      }
+    },
+    "spacing": {
+      "base_unit": "8px",
+      "gutter": "24px",
+      "lg": "24px",
+      "margin_desktop": "40px",
+      "margin_mobile": "16px",
+      "md": "16px",
+      "sidebar_width": "280px",
+      "sm": "8px",
+      "xl": "32px",
+      "xs": "4px"
+    },
+    "headlineFontFamily": "Geist",
+    "bodyFontFamily": "Inter",
+    "labelFontFamily": "Inter"
+  },
+  "screenInstances": [
+    {
+      "id": "0a6adc6ad0d34171974ce917f0c5d509",
+      "sourceScreen": "projects/12430849347074200927/screens/0a6adc6ad0d34171974ce917f0c5d509",
+      "x": 2368,
+      "width": 1280,
+      "height": 1273
+    },
+    {
+      "id": "1443b3e74e2c419d91949d250a5cf361",
+      "sourceScreen": "projects/12430849347074200927/screens/1443b3e74e2c419d91949d250a5cf361",
+      "x": 6400,
+      "width": 1280,
+      "height": 1171
+    },
+    {
+      "id": "1daeb1cd5fdd40c18e04934bb02702d1",
+      "sourceScreen": "projects/12430849347074200927/screens/1daeb1cd5fdd40c18e04934bb02702d1",
+      "x": 5056,
+      "width": 1280,
+      "height": 1024
+    },
+    {
+      "id": "29c7689853bc43df88cb4e01b3e3744f",
+      "sourceScreen": "projects/12430849347074200927/screens/29c7689853bc43df88cb4e01b3e3744f",
+      "x": 3712,
+      "width": 1280,
+      "height": 1366
+    },
+    {
+      "id": "2c85e2c8d54044b38cbac672cff9b634",
+      "sourceScreen": "projects/12430849347074200927/screens/2c85e2c8d54044b38cbac672cff9b634",
+      "x": 1362,
+      "y": 1622,
+      "width": 390,
+      "height": 884
+    },
+    {
+      "id": "465892ac0d834bbf88456a56d21667e3",
+      "sourceScreen": "projects/12430849347074200927/screens/465892ac0d834bbf88456a56d21667e3",
+      "x": 7744,
+      "width": 1280,
+      "height": 1229
+    },
+    {
+      "id": "6d4c71cd3c8d4f039c5f499fdec8cb81",
+      "sourceScreen": "projects/12430849347074200927/screens/6d4c71cd3c8d4f039c5f499fdec8cb81",
+      "x": 454,
+      "y": 1622,
+      "width": 390,
+      "height": 1048
+    },
+    {
+      "id": "8e03f8ff0d22484a9c15cd736f3cffb8",
+      "sourceScreen": "projects/12430849347074200927/screens/8e03f8ff0d22484a9c15cd736f3cffb8",
+      "x": 4032,
+      "y": 3425,
+      "width": 1280,
+      "height": 1024
+    },
+    {
+      "id": "95a4271b27684a2dac10f422fde93abe",
+      "sourceScreen": "projects/12430849347074200927/screens/95a4271b27684a2dac10f422fde93abe",
+      "y": 3425,
+      "width": 1280,
+      "height": 1060
+    },
+    {
+      "id": "a3c716714c924a62b7237c261a63fdd1",
+      "sourceScreen": "projects/12430849347074200927/screens/a3c716714c924a62b7237c261a63fdd1",
+      "x": 1024,
+      "width": 1280,
+      "height": 1024
+    },
+    {
+      "id": "assets_399f6283a88145d384a84e93e543d2a9",
+      "width": 960,
+      "height": 540,
+      "sourceAsset": "assets/399f6283a88145d384a84e93e543d2a9",
+      "type": "DESIGN_SYSTEM_INSTANCE"
+    },
+    {
+      "id": "c2def14c23da4e92add9ce5360e280c3",
+      "sourceScreen": "projects/12430849347074200927/screens/c2def14c23da4e92add9ce5360e280c3",
+      "y": 1622,
+      "width": 390,
+      "height": 1484
+    },
+    {
+      "id": "cff0ef4ecc5b418dbe66520e175c14eb",
+      "sourceScreen": "projects/12430849347074200927/screens/cff0ef4ecc5b418dbe66520e175c14eb",
+      "x": 1344,
+      "y": 3425,
+      "width": 1280,
+      "height": 1088
+    },
+    {
+      "id": "efdb8baed5fd49d9ba46082975358dd9",
+      "sourceScreen": "projects/12430849347074200927/screens/efdb8baed5fd49d9ba46082975358dd9",
+      "x": 908,
+      "y": 1622,
+      "width": 390,
+      "height": 1547
+    },
+    {
+      "id": "f95dbdfafcc24c85aa64327347b138a2",
+      "sourceScreen": "projects/12430849347074200927/screens/f95dbdfafcc24c85aa64327347b138a2",
+      "x": 2688,
+      "y": 3425,
+      "width": 1280,
+      "height": 1024
+    }
+  ],
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

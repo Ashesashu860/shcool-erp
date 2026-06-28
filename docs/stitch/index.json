@@ -1,0 +1,100 @@
+[
+  {
+    "id": "1443b3e74e2c419d91949d250a5cf361",
+    "title": "Student Profile - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2342"
+  },
+  {
+    "id": "1daeb1cd5fdd40c18e04934bb02702d1",
+    "title": "Manage Classes - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2048"
+  },
+  {
+    "id": "a3c716714c924a62b7237c261a63fdd1",
+    "title": "Login - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2048"
+  },
+  {
+    "id": "efdb8baed5fd49d9ba46082975358dd9",
+    "title": "Student Profile (Mobile) - ScholarSync",
+    "deviceType": "MOBILE",
+    "width": "780",
+    "height": "3094"
+  },
+  {
+    "id": "c2def14c23da4e92add9ce5360e280c3",
+    "title": "Admin Dashboard (Mobile) - ScholarSync",
+    "deviceType": "MOBILE",
+    "width": "780",
+    "height": "2970"
+  },
+  {
+    "id": "95a4271b27684a2dac10f422fde93abe",
+    "title": "Admin Dashboard (Tablet) - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2120"
+  },
+  {
+    "id": "8e03f8ff0d22484a9c15cd736f3cffb8",
+    "title": "Manage Classes (Tablet) - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2048"
+  },
+  {
+    "id": "0a6adc6ad0d34171974ce917f0c5d509",
+    "title": "Onboarding: School Info",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2546"
+  },
+  {
+    "id": "f95dbdfafcc24c85aa64327347b138a2",
+    "title": "Login (Tablet) - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2048"
+  },
+  {
+    "id": "cff0ef4ecc5b418dbe66520e175c14eb",
+    "title": "Student Profile (Tablet) - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2176"
+  },
+  {
+    "id": "29c7689853bc43df88cb4e01b3e3744f",
+    "title": "Admin Dashboard - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2522"
+  },
+  {
+    "id": "2c85e2c8d54044b38cbac672cff9b634",
+    "title": "Login (Mobile) - ScholarSync",
+    "deviceType": "MOBILE",
+    "width": "780",
+    "height": "1768"
+  },
+  {
+    "id": "465892ac0d834bbf88456a56d21667e3",
+    "title": "Add New Student - ScholarSync",
+    "deviceType": "DESKTOP",
+    "width": "2560",
+    "height": "2456"
+  },
+  {
+    "id": "6d4c71cd3c8d4f039c5f499fdec8cb81",
+    "title": "Manage Classes (Mobile) - ScholarSync",
+    "deviceType": "MOBILE",
+    "width": "780",
+    "height": "2096"
+  }
+]

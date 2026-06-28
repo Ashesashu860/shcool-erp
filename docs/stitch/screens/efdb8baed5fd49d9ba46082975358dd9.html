@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>ScholarSync - Student Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2e3039",
+                    "secondary-fixed": "#d3e4fe",
+                    "primary-container": "#2563eb",
+                    "secondary": "#505f76",
+                    "on-surface": "#191b23",
+                    "on-primary-container": "#eeefff",
+                    "outline-variant": "#c3c6d7",
+                    "background": "#faf8ff",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-variant": "#e1e2ed",
+                    "surface-container": "#ededf9",
+                    "inverse-primary": "#b4c5ff",
+                    "tertiary-container": "#bc4800",
+                    "surface-bright": "#faf8ff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-primary-fixed": "#00174b",
+                    "tertiary": "#943700",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-container": "#ffede6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#54647a",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#0053db",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-surface-variant": "#434655",
+                    "on-error": "#ffffff",
+                    "primary": "#004ac6",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface": "#faf8ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-background": "#191b23",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-container-highest": "#e1e2ed",
+                    "surface-container-high": "#e7e7f3",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "outline": "#737686",
+                    "surface-dim": "#d9d9e5",
+                    "inverse-on-surface": "#f0f0fb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "base_unit": "8px",
+                    "margin_desktop": "40px",
+                    "sm": "8px",
+                    "margin_mobile": "16px",
+                    "sidebar_width": "280px",
+                    "gutter": "24px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "headline-lg": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "code": ["Geist"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Micro-interactions */
+        .tap-scale:active { transform: scale(0.96); transition: transform 0.1s ease; }
+        .active-tab-indicator { position: absolute; bottom: 0; left: 0; height: 2px; background-color: var(--tw-primary); transition: all 0.3s ease; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top Navigation (Mobile Context) -->
+<header class="w-full sticky top-0 z-40 bg-surface-bright border-b border-outline-variant flex justify-between items-center px-4 h-16">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors tap-scale">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Student Profile</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors tap-scale">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<main class="w-full max-w-md mx-auto">
+<!-- Header Content: Student Bio & Stats -->
+<section class="px-4 py-6 bg-surface-bright">
+<div class="flex flex-col items-center gap-4">
+<div class="relative">
+<div class="w-24 h-24 rounded-full border-4 border-primary-fixed p-1 shadow-md overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover rounded-full" data-alt="A professional studio portrait of a high school student with a confident, friendly expression. The lighting is bright and even, fitting a premium academic platform aesthetic. The background is a soft, blurred library setting with light wood tones and deep blues, maintaining a clean and authoritative corporate minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBluf8AHD6oYbSKs0p5HvL00_qh9P32vGgHDIJcrr6ZF4ZEcaDPfx35qeJhdqOF8DrTefFikDmHBiG0GseVOCUZYhSs-uyNkM4eB9yEYLq1zx_x_eW42Iy_mIlTDl3Wud1VSK2zTKKuZ9KhsBDZh8ViOUOdjYMo1SJ3XC2r-1mlbzQCkAzIaZI8qddrYNGJt3_PqPnjCwWI-t2f5LtOJZkmmvA4m907xn_vaxjxF_sKaWrEBOpI5RMkLdtfTRmnjCHjGY3gslHq5UaO"/>
+</div>
+<div class="absolute bottom-0 right-0 w-8 h-8 bg-primary rounded-full border-2 border-white flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Marcus Chen</h2>
+<p class="font-body-md text-secondary">Grade 11 • Science Stream</p>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-2 gap-3 mt-6">
+<div class="bg-primary-container p-4 rounded-xl flex flex-col gap-1 transition-all hover:brightness-105">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-on-primary-container opacity-80 uppercase tracking-wider">Academic GPA</span>
+<span class="material-symbols-outlined text-on-primary-container opacity-70">trending_up</span>
+</div>
+<span class="font-display-lg text-[32px] font-bold text-on-primary-container">3.88</span>
+<span class="font-label-md text-on-primary-container text-[10px] bg-white/20 px-2 py-0.5 rounded-full w-fit">Top 5% of Class</span>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex flex-col gap-1 border border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-secondary uppercase tracking-wider">Attendance</span>
+<span class="material-symbols-outlined text-secondary opacity-70">event_available</span>
+</div>
+<span class="font-display-lg text-[32px] font-bold text-on-surface">96.4%</span>
+<span class="font-label-md text-secondary text-[10px] bg-secondary-container px-2 py-0.5 rounded-full w-fit">Excellent</span>
+</div>
+</div>
+</section>
+<!-- Scrollable Tab Bar -->
+<nav class="sticky top-16 z-30 bg-surface-bright border-b border-outline-variant">
+<div class="flex gap-6 px-4 overflow-x-auto hide-scrollbar scroll-smooth">
+<button class="relative py-4 whitespace-nowrap font-label-md text-primary font-bold transition-colors">
+                    Overview
+                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-t-full"></div>
+</button>
+<button class="relative py-4 whitespace-nowrap font-label-md text-secondary hover:text-on-surface transition-colors">
+                    Parents
+                </button>
+<button class="relative py-4 whitespace-nowrap font-label-md text-secondary hover:text-on-surface transition-colors">
+                    Documents
+                </button>
+<button class="relative py-4 whitespace-nowrap font-label-md text-secondary hover:text-on-surface transition-colors">
+                    Grades
+                </button>
+<button class="relative py-4 whitespace-nowrap font-label-md text-secondary hover:text-on-surface transition-colors">
+                    Discipline
+                </button>
+</div>
+</nav>
+<!-- Information Cards -->
+<div class="p-4 flex flex-col gap-4">
+<!-- Personal Info Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="font-title-md text-title-md">Personal Information</h3>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Full Name</label>
+<span class="font-body-lg text-on-surface">Marcus Aurelius Chen</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Date of Birth</label>
+<span class="font-body-lg text-on-surface">May 14, 2007</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Gender</label>
+<span class="font-body-lg text-on-surface">Male</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Address</label>
+<span class="font-body-lg text-on-surface">742 Evergreen Terrace, Springfield, IL 62704</span>
+</div>
+</div>
+</div>
+<!-- Contact Info Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">contact_page</span>
+<h3 class="font-title-md text-title-md">Contact Details</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg border border-outline-variant/50">
+<div class="flex flex-col">
+<label class="font-label-md text-secondary uppercase text-[10px]">Student Email</label>
+<span class="font-body-md text-on-surface">m.chen@scholarsync.edu</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-50">mail</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg border border-outline-variant/50">
+<div class="flex flex-col">
+<label class="font-label-md text-secondary uppercase text-[10px]">Phone Number</label>
+<span class="font-body-md text-on-surface">+1 (555) 012-3456</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-50">call</span>
+</div>
+</div>
+</div>
+<!-- Academic Enrollment Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-5 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">school</span>
+<h3 class="font-title-md text-title-md">Academic Enrollment</h3>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Student ID</label>
+<span class="font-body-lg text-on-surface font-code">#SS-2024-0089</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Enrolled Date</label>
+<span class="font-body-lg text-on-surface">Aug 2021</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-secondary uppercase text-[10px] tracking-widest">Advisor</label>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-[10px] font-bold text-on-secondary-fixed">JS</div>
+<span class="font-body-md text-on-surface">Dr. James Sullivan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Placeholder Animation Area -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-dashed border-outline relative overflow-hidden h-32 flex items-center justify-center group cursor-pointer">
+
+<div class="relative z-10 flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">insights</span>
+<p class="font-label-md text-secondary">View Predictive Performance Analytics</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Actions -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-bright/80 backdrop-blur-lg border-t border-outline-variant px-4 py-4 pb-safe z-50 flex gap-3">
+<button class="flex-1 bg-surface-container text-secondary font-bold py-3 rounded-xl border border-outline-variant flex items-center justify-center gap-2 tap-scale">
+<span class="material-symbols-outlined">download</span>
+<span class="font-label-md">Export</span>
+</button>
+<button class="flex-[2] bg-primary text-on-primary font-bold py-3 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 tap-scale">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit</span>
+<span class="font-label-md">Edit Profile</span>
+</button>
+</div>
+<!-- Persistent Bottom Nav (from Shared Components) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-[60] bg-surface border-t border-outline-variant shadow-lg flex justify-around items-center px-4 py-2 pb-safe" id="bottom-nav">
+<!-- Using Logic: Students tab is active -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md-mobile">Classes</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md-mobile">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        // Subtle scroll behavior for the tab bar active state
+        const tabs = document.querySelectorAll('nav div button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'font-bold');
+                    t.classList.add('text-secondary');
+                    const indicator = t.querySelector('div');
+                    if(indicator) indicator.remove();
+                });
+                tab.classList.add('text-primary', 'font-bold');
+                tab.classList.remove('text-secondary');
+                const newIndicator = document.createElement('div');
+                newIndicator.className = "absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-t-full";
+                tab.appendChild(newIndicator);
+            });
+        });
+
+        // Toggle FAB or Actions based on scroll (optional UX enhancement)
+        let lastScrollTop = 0;
+        const bottomActions = document.querySelector('div.fixed.bottom-0.left-0');
+        const bottomNav = document.getElementById('bottom-nav');
+        
+        // Ensure only actions or nav are prominent
+        // For this specific view (Profile), actions are prioritised
+        bottomNav.style.transform = 'translateY(100%)'; 
+        // In a real app, logic would transition between these. 
+        // Here we keep actions visible for "Profile" context as requested.
+    </script>
+</body></html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>ScholarSync - Sign In</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter and Geist -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#2e3039",
+                "secondary-fixed": "#d3e4fe",
+                "primary-container": "#2563eb",
+                "secondary": "#505f76",
+                "on-surface": "#191b23",
+                "on-primary-container": "#eeefff",
+                "outline-variant": "#c3c6d7",
+                "background": "#faf8ff",
+                "surface-container-lowest": "#ffffff",
+                "primary-fixed-dim": "#b4c5ff",
+                "surface-variant": "#e1e2ed",
+                "surface-container": "#ededf9",
+                "inverse-primary": "#b4c5ff",
+                "tertiary-container": "#bc4800",
+                "surface-bright": "#faf8ff",
+                "on-secondary-fixed": "#0b1c30",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "on-primary-fixed": "#00174b",
+                "tertiary": "#943700",
+                "primary-fixed": "#dbe1ff",
+                "on-tertiary-container": "#ffede6",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#54647a",
+                "on-error-container": "#93000a",
+                "secondary-container": "#d0e1fb",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "surface-tint": "#0053db",
+                "on-tertiary-fixed": "#360f00",
+                "on-surface-variant": "#434655",
+                "on-error": "#ffffff",
+                "primary": "#004ac6",
+                "tertiary-fixed": "#ffdbcd",
+                "surface": "#faf8ff",
+                "on-secondary-fixed-variant": "#38485d",
+                "on-background": "#191b23",
+                "surface-container-low": "#f3f3fe",
+                "surface-container-highest": "#e1e2ed",
+                "surface-container-high": "#e7e7f3",
+                "secondary-fixed-dim": "#b7c8e1",
+                "on-primary-fixed-variant": "#003ea8",
+                "error": "#ba1a1a",
+                "tertiary-fixed-dim": "#ffb596",
+                "outline": "#737686",
+                "surface-dim": "#d9d9e5",
+                "inverse-on-surface": "#f0f0fb"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "lg": "24px",
+                "xs": "4px",
+                "xl": "32px",
+                "base_unit": "8px",
+                "margin_desktop": "40px",
+                "sm": "8px",
+                "margin_mobile": "16px",
+                "sidebar_width": "280px",
+                "gutter": "24px",
+                "md": "16px"
+            },
+            "fontFamily": {
+                "title-md": ["Inter"],
+                "headline-lg": ["Geist"],
+                "headline-lg-mobile": ["Geist"],
+                "headline-md": ["Geist"],
+                "display-lg": ["Geist"],
+                "code": ["Geist"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-md": ["Inter"]
+            },
+            "fontSize": {
+                "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle atmospheric gradient */
+        .auth-bg-gradient {
+            background: radial-gradient(circle at top right, #dbe1ff 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, #d0e1fb 0%, transparent 40%);
+        }
+
+        /* Input focus rings */
+        .input-focus-ring:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #004ac6;
+            border-color: #004ac6;
+        }
+
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Tap highlighting for mobile */
+        .tap-highlight-transparent {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex flex-col no-scrollbar">
+<!-- Header / Logo Area -->
+<header class="w-full flex flex-col items-center pt-xl pb-lg px-margin_mobile">
+<div class="mb-lg mt-8">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary text-3xl" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</h1>
+<p class="font-label-md text-label-md text-secondary uppercase tracking-widest -mt-1">Academic Admin</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col px-margin_mobile">
+<!-- Welcome Text -->
+<div class="mb-xl text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Welcome Back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage your academic ecosystem with precision.</p>
+</div>
+<!-- Login Form Container -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm w-full max-w-sm mx-auto">
+<form class="flex flex-col gap-lg" id="loginForm">
+<!-- Identifier Field -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-md text-label-md text-on-surface-variant px-1" for="identifier">Email or Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="person">person</span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container rounded-xl border border-outline input-focus-ring font-body-md text-body-md transition-all" id="identifier" placeholder="name@school.edu" required="" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="font-label-md text-label-md text-primary tap-highlight-transparent" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="lock">lock</span>
+<input class="w-full h-14 pl-12 pr-12 bg-surface-container rounded-xl border border-outline input-focus-ring font-body-md text-body-md transition-all" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant focus:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Toggle -->
+<div class="flex items-center gap-3 py-1">
+<input class="w-5 h-5 rounded border-outline text-primary focus:ring-primary-container" id="remember" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface-variant" for="remember">Stay signed in for 30 days</label>
+</div>
+<!-- Sign In Button -->
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-title-md text-title-md shadow-lg shadow-primary/25 active:scale-[0.98] transition-transform flex items-center justify-center gap-2 mt-2" type="submit">
+                    Sign In
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Biometric / Alternative Action -->
+<div class="mt-lg flex flex-col items-center gap-lg">
+<div class="flex items-center gap-4 w-full max-w-xs">
+<div class="flex-grow h-px bg-outline-variant"></div>
+<span class="font-label-md text-label-md text-outline">OR</span>
+<div class="flex-grow h-px bg-outline-variant"></div>
+</div>
+<button class="flex items-center gap-3 px-6 py-3 bg-surface-container-high rounded-full border border-outline-variant active:bg-surface-variant transition-colors tap-highlight-transparent">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="faceid">fingerprint</span>
+<span class="font-label-md text-label-md text-on-surface">Use Biometrics</span>
+</button>
+</div>
+</main>
+<!-- Footer Links -->
+<footer class="w-full py-xl px-margin_mobile flex flex-col items-center gap-4">
+<nav class="flex gap-xl">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="privacy_tip">privacy_tip</span>
+                Privacy
+            </a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                Terms
+            </a>
+</nav>
+<p class="font-label-md text-label-md text-outline">© 2024 ScholarSync. All rights reserved.</p>
+</footer>
+<!-- Decorative Atmosphere (Bento-inspired gradient cards in background) -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden opacity-30">
+<div class="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-primary-container rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[5%] left-[-15%] w-[400px] h-[400px] bg-secondary-container rounded-full blur-[120px]"></div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('loginForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Visual feedback for submit
+                submitBtn.disabled = true;
+                const originalContent = submitBtn.innerHTML;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Authenticating...
+                `;
+
+                // Simulate login delay
+                setTimeout(() => {
+                    submitBtn.classList.remove('bg-primary');
+                    submitBtn.classList.add('bg-green-600');
+                    submitBtn.innerHTML = `
+                        <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                        Welcome Back
+                    `;
+                    
+                    // Trigger haptic-like animation
+                    submitBtn.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        submitBtn.style.transform = 'scale(1)';
+                        // In a real app, window.location would change here
+                    }, 200);
+                }, 1500);
+            });
+
+            // Toggle Password Visibility
+            const toggleBtn = document.querySelector('button[type="button"]');
+            const passwordInput = document.getElementById('password');
+            let isVisible = false;
+
+            toggleBtn.addEventListener('click', () => {
+                isVisible = !isVisible;
+                passwordInput.type = isVisible ? 'text' : 'password';
+                toggleBtn.querySelector('span').textContent = isVisible ? 'visibility_off' : 'visibility';
+            });
+
+            // Input focus atmospheric effects
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.parentElement.classList.add('scale-[1.01]');
+                });
+                input.addEventListener('blur', () => {
+                    input.parentElement.parentElement.classList.remove('scale-[1.01]');
+                });
+            });
+        });
+    </script>
+</body></html>

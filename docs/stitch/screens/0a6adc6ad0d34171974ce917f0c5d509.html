@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarSync | School Onboarding</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ffb596",
+                    "surface-bright": "#faf8ff",
+                    "on-background": "#191b23",
+                    "surface-variant": "#e1e2ed",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-tertiary": "#ffffff",
+                    "background": "#faf8ff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ffede6",
+                    "on-primary-fixed": "#00174b",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-surface-variant": "#434655",
+                    "tertiary-fixed": "#ffdbcd",
+                    "secondary-fixed": "#d3e4fe",
+                    "outline": "#737686",
+                    "inverse-on-surface": "#f0f0fb",
+                    "tertiary": "#943700",
+                    "inverse-surface": "#2e3039",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-tint": "#0053db",
+                    "surface-dim": "#d9d9e5",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#bc4800",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "surface-container-highest": "#e1e2ed",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container": "#ededf9",
+                    "on-secondary-container": "#54647a",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#191b23",
+                    "primary": "#004ac6",
+                    "surface-container-high": "#e7e7f3",
+                    "surface": "#faf8ff",
+                    "on-primary-container": "#eeefff",
+                    "secondary": "#505f76",
+                    "outline-variant": "#c3c6d7",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#2563eb",
+                    "primary-fixed": "#dbe1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base_unit": "8px",
+                    "margin_mobile": "16px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "sidebar_width": "280px",
+                    "xs": "4px",
+                    "margin_desktop": "40px",
+                    "gutter": "24px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "code": ["Geist"],
+                    "headline-md": ["Geist"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Geist"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { @apply border-primary bg-primary text-white; }
+        .step-inactive { @apply border-outline-variant bg-surface text-on-surface-variant; }
+        .step-complete { @apply border-primary bg-primary-fixed text-primary; }
+        
+        /* Glassmorphism subtle overlay */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .custom-shadow {
+            box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col items-center">
+<!-- Top AppBar (Simplified for Onboarding) -->
+<header class="w-full h-16 flex justify-between items-center px-margin_mobile md:px-margin_desktop sticky top-0 z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">ScholarSync</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant font-label-md hover:text-primary transition-colors">Save Progress</button>
+<span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+</div>
+</header>
+<main class="w-full max-w-4xl px-margin_mobile md:px-margin_desktop py-12 flex flex-col gap-10">
+<!-- Multi-step Stepper -->
+<nav aria-label="Onboarding Progress" class="w-full overflow-x-auto pb-4">
+<div class="flex items-center justify-between min-w-[600px] relative">
+<!-- Progress Line Background -->
+<div class="absolute top-5 left-0 w-full h-[2px] bg-outline-variant z-0"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-active font-bold transition-all">1</div>
+<span class="font-label-md text-primary">School Info</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-inactive font-bold transition-all">2</div>
+<span class="font-label-md text-on-surface-variant">Infrastructure</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-inactive font-bold transition-all">3</div>
+<span class="font-label-md text-on-surface-variant">Staff Setup</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-inactive font-bold transition-all">4</div>
+<span class="font-label-md text-on-surface-variant">Curriculum</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-inactive font-bold transition-all">5</div>
+<span class="font-label-md text-on-surface-variant">Finance</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full flex items-center justify-center border-2 step-inactive font-bold transition-all">6</div>
+<span class="font-label-md text-on-surface-variant">Go Live</span>
+</div>
+</div>
+</nav>
+<!-- Main Form Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-8 md:p-12 custom-shadow">
+<!-- Header -->
+<div class="mb-10">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">School Profile</h1>
+<p class="font-body-lg text-on-surface-variant">Tell us about your educational institution to personalize your administrative workspace.</p>
+</div>
+<form class="flex flex-col gap-8">
+<!-- Section 1: Visual Identity -->
+<section class="flex flex-col md:flex-row gap-8 items-start">
+<div class="flex-shrink-0">
+<label class="font-label-md text-on-surface mb-4 block">School Logo</label>
+<div class="group relative w-32 h-32 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center bg-surface-container-low hover:border-primary transition-all cursor-pointer overflow-hidden">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1">add_a_photo</span>
+<span class="font-label-md text-outline group-hover:text-primary">Upload</span>
+<!-- Invisible Input -->
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file"/>
+</div>
+</div>
+<div class="flex-grow w-full space-y-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="school-name">School Name <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="school-name" placeholder="e.g. Oakridge International Academy" type="text"/>
+</div>
+</div>
+</section>
+<!-- Section 2: Classification -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="school-type">Institution Type <span class="text-error">*</span></label>
+<div class="relative">
+<select class="w-full appearance-none px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="school-type">
+<option disabled="" selected="" value="">Select Type</option>
+<option value="school">K-12 School</option>
+<option value="college">Higher Education / College</option>
+<option value="coaching">Coaching / Training Institute</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="board">Education Board <span class="text-error">*</span></label>
+<div class="relative">
+<select class="w-full appearance-none px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="board">
+<option disabled="" selected="" value="">Select Board</option>
+<option value="cbse">CBSE</option>
+<option value="icse">ICSE</option>
+<option value="ib">International Baccalaureate (IB)</option>
+<option value="igcse">IGCSE</option>
+<option value="state">State Board</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Legal & Auth -->
+<section class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="affiliation">Affiliation Number / License Key</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="affiliation" placeholder="e.g. CBSE/AFF/213001" type="text"/>
+</section>
+<!-- Section 4: Contact -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="email">Official Email <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="email" placeholder="admin@school.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-on-surface" for="phone">Primary Phone <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface text-on-surface focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</section>
+<!-- Action Footer -->
+<div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-outline-variant">
+<p class="font-label-md text-on-surface-variant text-center sm:text-left">
+<span class="text-error">*</span> Mandatory fields for setup.
+                    </p>
+<button class="w-full sm:w-auto px-12 py-4 bg-primary text-white rounded-xl font-title-md hover:bg-on-primary-fixed-variant active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+                        Continue
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Supportive Info / Decorative Area -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-80">
+<div class="flex items-start gap-3 p-4">
+<span class="material-symbols-outlined text-primary">security</span>
+<div>
+<h4 class="font-label-md text-on-surface font-bold">Data Privacy</h4>
+<p class="text-xs text-on-surface-variant">Your data is encrypted and compliant with global educational standards.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div>
+<h4 class="font-label-md text-on-surface font-bold">Verification</h4>
+<p class="text-xs text-on-surface-variant">We'll verify your affiliation number in the next 24 hours.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-4">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<div>
+<h4 class="font-label-md text-on-surface font-bold">Need Help?</h4>
+<p class="text-xs text-on-surface-variant">Schedule a free 15-minute onboarding call with our experts.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Top background accent -->
+<div class="fixed top-0 left-0 w-full h-1/3 bg-gradient-to-b from-primary/5 to-transparent -z-10"></div>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Form submission prevent default for demo
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Moving to Step 2: Infrastructure. This would typically trigger a router transition.');
+        });
+    </script>
+</body></html>

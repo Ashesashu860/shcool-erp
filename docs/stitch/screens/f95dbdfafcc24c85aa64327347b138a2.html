@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarSync | Administrative Login</title>
+<!-- Google Fonts: Geist for headlines, Inter for body -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcd",
+                    "primary-container": "#2563eb",
+                    "primary": "#004ac6",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#505f76",
+                    "on-surface-variant": "#434655",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-surface": "#191b23",
+                    "surface-variant": "#e1e2ed",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#faf8ff",
+                    "inverse-surface": "#2e3039",
+                    "on-error": "#ffffff",
+                    "tertiary": "#943700",
+                    "on-secondary-container": "#54647a",
+                    "on-tertiary-fixed": "#360f00",
+                    "outline": "#737686",
+                    "primary-fixed": "#dbe1ff",
+                    "surface": "#faf8ff",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-dim": "#d9d9e5",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "inverse-on-surface": "#f0f0fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#b4c5ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e7f3",
+                    "surface-tint": "#0053db",
+                    "background": "#faf8ff",
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-primary-container": "#eeefff",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-container-highest": "#e1e2ed",
+                    "secondary-container": "#d0e1fb",
+                    "on-error-container": "#93000a",
+                    "on-background": "#191b23",
+                    "tertiary-container": "#bc4800",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary-container": "#ffede6",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#ededf9",
+                    "on-primary-fixed": "#00174b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "base_unit": "8px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "margin_desktop": "40px",
+                    "margin_mobile": "16px",
+                    "sidebar_width": "280px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "code": ["Geist"],
+                    "title-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "code": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf8ff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(221, 83%, 93%, 1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(220, 80%, 96%, 1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(221, 83%, 93%, 1) 0, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom input focus ring to match brand colors */
+        .brand-focus:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #004ac6;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface p-md">
+<!-- Login Container -->
+<main class="w-full max-w-[520px] mx-auto animate-in fade-in duration-700">
+<!-- Top Branding Section -->
+<div class="flex flex-col items-center mb-xl">
+<div class="mb-lg bg-primary-container p-sm rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">ScholarSync</h1>
+<p class="font-body-md text-secondary mt-xs">Academic Administration Portal</p>
+</div>
+<!-- Login Card -->
+<section class="glass-panel border border-outline-variant rounded-[24px] p-xl shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.05)] overflow-hidden relative">
+<!-- Subtle background pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#004ac6 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10">
+<header class="mb-lg">
+<h2 class="font-title-md text-title-md text-on-surface">Sign In</h2>
+<p class="font-body-md text-on-surface-variant">Enter your credentials to manage your academic ecosystem.</p>
+</header>
+<form class="space-y-lg">
+<!-- Identity Input -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-secondary" for="identity">Email or Mobile Number</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">alternate_email</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md text-on-surface focus:border-primary brand-focus transition-all placeholder:text-outline-variant" id="identity" placeholder="admin@scholarsync.edu" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-secondary" for="password">Password</label>
+<a class="font-label-md text-label-md text-primary hover:underline transition-all" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-12 pr-12 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl font-body-md text-on-surface focus:border-primary brand-focus transition-all placeholder:text-outline-variant" id="password" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me & Policy -->
+<div class="flex items-center gap-sm py-xs">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="font-label-md text-label-md text-on-surface-variant cursor-pointer" for="remember">Keep me signed in for 30 days</label>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-[#003ea8] text-white py-4 rounded-xl font-headline-md text-[18px] shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Info -->
+<div class="mt-xl pt-lg border-t border-outline-variant flex flex-col gap-md">
+<p class="font-body-md text-on-surface-variant text-center">
+                        Don't have an institutional account? 
+                        <a class="text-primary font-semibold hover:underline" href="#">Contact Registry</a>
+</p>
+</div>
+</div>
+</section>
+<!-- Footer Help -->
+<footer class="mt-lg flex justify-between items-center px-sm">
+<p class="font-label-md text-label-md text-outline">© 2024 ScholarSync Inc.</p>
+<div class="flex gap-lg">
+<a class="font-label-md text-label-md text-outline hover:text-secondary" href="#">Privacy</a>
+<a class="font-label-md text-label-md text-outline hover:text-secondary" href="#">Security</a>
+<a class="font-label-md text-label-md text-outline hover:text-secondary" href="#">Support</a>
+</div>
+</footer>
+</main>
+<!-- Visual Element: Background Image (Tablet Specific Context) -->
+<div class="fixed bottom-0 right-0 w-[400px] h-[400px] opacity-10 pointer-events-none hidden lg:block">
+<img class="w-full h-full object-contain" data-alt="A sophisticated 3D abstract architectural render of a modern library atrium with glass walls and floating platforms. The lighting is clean, bright, and professional, reflecting a high-tech academic environment. The color palette consists of soft blues, crisp whites, and deep navy accents to match a premium corporate UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUUn0oNEV-kCBB1tAxTCpJpud5CCuxz2CucZleEMK40cxMM7hCqc15IWJG7bVCxVuhz1q3qpv-GiCsS6NOZPuykbDUNdJhpGuV1K745iIkNi_N7PBz2Sp9D98f88Wim0awfsCYE7jBxLa-YsBrMNuDFqRtSwDlBoiX3H0bnMENtCjU3bg4bD4hzs1uWhw-3sqy49uLVwvD-3BJwbP0WIW309zVM9JURWdebxbCQ92vRRPtOOjN71XMdukjzCehCV0XhQZ2Thxg9agO"/>
+</div>
+<script>
+        function togglePassword() {
+            const pwd = document.getElementById('password');
+            const icon = document.getElementById('eye-icon');
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                icon.textContent = 'visibility_off';
+            } else {
+                pwd.type = 'password';
+                icon.textContent = 'visibility';
+            }
+        }
+
+        // Add a subtle parallax effect to the card on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('section');
+            if (!card) return;
+            
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Form submission micro-interaction
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<span class="animate-spin material-symbols-outlined">sync</span>';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Success';
+                btn.classList.replace('bg-primary', 'bg-emerald-600');
+                setTimeout(() => {
+                    // Simulating a redirect or reset
+                    btn.innerHTML = originalContent;
+                    btn.classList.replace('bg-emerald-600', 'bg-primary');
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,70 @@
+---
+description: Zustand store conventions - structure, selectors, and the UI-vs-server-state boundary
+alwaysApply: true
+---
+
+# Zustand Stores
+
+## Boundary (what belongs in a store)
+
+Zustand holds ONLY ephemeral client/UI state: open modals, drawers, selected filters, row selections, theme, wizard step. Server data ALWAYS goes through TanStack Query feature hooks — never mirror fetched data into a store (see web-architecture rule).
+
+## Location & naming
+
+- Cross-cutting: `src/shared/stores/<name>-store.ts`.
+- Feature-scoped: `src/features/<feature>/stores/<name>-store.ts`.
+- Export the hook as `use<Name>Store` (e.g. `useUIStore`).
+
+## Store shape
+
+Type the state, group fields first then actions, and use functional `set` for derived updates. Keep each store small and single-purpose — split by concern rather than building one mega-store.
+
+```typescript
+type UIState = {
+  mobileNavOpen: boolean;            // state first
+  setMobileNavOpen: (open: boolean) => void;  // then actions
+  toggleMobileNav: () => void;
+};
+
+export const useUIStore = create<UIState>((set) => ({
+  mobileNavOpen: false,
+  setMobileNavOpen: (open) => set({ mobileNavOpen: open }),
+  toggleMobileNav: () => set((s) => ({ mobileNavOpen: !s.mobileNavOpen })),
+}));
+```
+
+For large stores, use the slices pattern: typed `StateCreator` slices combined in one `create`.
+
+## Easy data fetching (selectors)
+
+Always select the narrowest slice, and export atomic selector hooks so a component reads state with one import.
+
+```typescript
+// GOOD — narrow selector, only re-renders when this field changes
+const open = useUIStore((s) => s.mobileNavOpen);
+
+// GOOD — ship ready-made selector hooks next to the store
+export const useMobileNavOpen = () => useUIStore((s) => s.mobileNavOpen);
+
+// BAD — selecting the whole store re-renders on every change
+const store = useUIStore();
+```
+
+- Selecting multiple fields/objects? Use `useShallow` to avoid re-render churn:
+  `const { a, b } = useUIStore(useShallow((s) => ({ a: s.a, b: s.b })));`
+- Read outside React with `useUIStore.getState()`; never subscribe in non-React code.
+
+## Actions
+
+Mutate state only through named actions inside the store — never call `set` from components. Actions are stable references, safe in effect/callback dependency arrays.
+
+## Middleware
+
+- Wrap with `devtools` (pass a store `name`) for debuggability.
+- Use `persist` only for durable UI prefs (theme, sidebar collapsed) with an explicit `name` and `partialize`. Never persist server data or transient flags.
+
+## Anti-patterns
+
+- Storing TanStack Query results in a store.
+- `const store = useUIStore()` (selecting everything).
+- Business logic in components instead of store actions.
