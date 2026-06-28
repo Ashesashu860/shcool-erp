@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { BrandLogo } from "@/shared/components/brand-logo";
 import { Icon } from "@/shared/components/icon";
 import { SidebarNav } from "@/shared/components/sidebar-nav";
@@ -7,7 +9,14 @@ import { Avatar, AvatarFallback } from "@/shared/ui/avatar";
 import { Sheet, SheetContent, SheetTitle } from "@/shared/ui/sheet";
 import { useMobileNavOpen, useSetMobileNavOpen } from "@/shared/stores/ui-store";
 
-function SidebarUser() {
+function SidebarUser({ onNavigate }: { onNavigate?: () => void }) {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    onNavigate?.();
+    router.push("/login");
+  };
+
   return (
     <div className="mt-auto border-t border-outline-variant px-4 pt-6">
       <div className="mb-4 flex items-center gap-3 px-4">
@@ -21,6 +30,7 @@ function SidebarUser() {
       </div>
       <button
         type="button"
+        onClick={handleLogout}
         className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-label-md text-error transition-colors hover:bg-error-container"
       >
         <Icon name="logout" />
@@ -37,7 +47,7 @@ function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
         <BrandLogo />
       </div>
       <SidebarNav onNavigate={onNavigate} />
-      <SidebarUser />
+      <SidebarUser onNavigate={onNavigate} />
     </>
   );
 }

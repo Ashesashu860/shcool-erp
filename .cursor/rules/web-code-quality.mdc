@@ -1,0 +1,43 @@
+---
+description: TypeScript, Next.js, and React best practices
+alwaysApply: true
+---
+
+# Web Code Quality
+
+General code-quality bar for all `.ts`/`.tsx`. For libraries see web-stack, for structure/data flow see web-architecture, for stores see web-state-zustand.
+
+## TypeScript
+- No `any` and no `unknown`. Always declare a precise type or generic for the data you actually expect; validate untyped input (e.g. a Zod schema) into a typed value instead of widening to `unknown`.
+- `type` for unions/intersections, `interface` for object shapes; let inference work, annotate public boundaries (props, return types of exported fns).
+- Model variants with discriminated unions; avoid non-null `!` assertions — narrow instead.
+- Use `import type { Foo }` for type-only imports.
+
+```typescript
+// BAD
+function parse(x: any) { return x.value!; }
+function parse(x: unknown): string { /* forces ad-hoc narrowing */ }
+// GOOD
+type Input = { value: string };
+function parse(x: Input): string {
+  return x.value;
+}
+```
+
+## React
+- Function components only; keep them small and single-purpose.
+- Follow the rules of hooks (top level, stable deps); extract reusable logic into custom hooks.
+- Stable list keys from data — never the array index.
+- Derive state from props/state instead of duplicating it in `useState`.
+- Memoize (`useMemo`/`useCallback`/`memo`) only to fix a measured problem, not by default.
+
+## Next.js
+This repo's Next.js differs from older versions — confirm conventions in `node_modules/next/dist/docs/` before writing route code (see AGENTS.md).
+- Default to Server Components; add `'use client'` only when a component needs state, effects, or browser APIs.
+- Fetch data on the server; keep secrets out of client components.
+- Use `next/link` for navigation and `next/image` for images.
+
+## General
+- Name things clearly; no dead or commented-out code.
+- Comments explain intent/trade-offs, not what the code obviously does.
+- Always handle async errors (try/catch or error boundaries); never swallow them silently.
